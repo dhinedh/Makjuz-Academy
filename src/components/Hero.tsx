@@ -133,7 +133,7 @@ const Hero: React.FC = () => {
         className="z-10 w-full flex justify-center md:justify-end"
       >
         <img
-          src="/src/Assets/hero.jpg"
+          src="/Assets/hero.jpg"
           alt="Learning illustration"
           className="max-w-md md:max-w-lg lg:max-w-xl"
         />

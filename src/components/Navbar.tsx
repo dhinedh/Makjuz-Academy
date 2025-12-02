@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Dropdown, Space, Avatar } from "antd";
-import logo from "../Assets/Logo_transparent.png";
+// ✅ No import needed - image is in public folder
 
 import {
   MenuOutlined,
@@ -14,11 +14,11 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
-import { useAuth } from "../context/AuthContext";  // ✅ import auth
+import { useAuth } from "../context/AuthContext";
 
 const Navbar: React.FC = () => {
   const { isDarkMode, toggleTheme } = useTheme();
-  const { user, logout } = useAuth();   // ✅ get user + logout from context
+  const { user, logout } = useAuth();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -76,15 +76,15 @@ const Navbar: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-2"
           >
-            <div className="w-55 h-12 flex items-center space-x-2">
+            <Link to="/" className="w-55 h-12 flex items-center space-x-2">
               <div className="w-55 h-12">
                 <img
-                  src={logo}
-                  alt="Logo"
+                  src="/Assets/Logo_transparent.png"
+                  alt="Makjuz Academy Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
-            </div>
+            </Link>
           </motion.div>
 
           {/* Desktop Menu */}
@@ -127,7 +127,7 @@ const Navbar: React.FC = () => {
                   <Space className="cursor-pointer">
                     <Avatar
                       size="default"
-                      src={user.image} // ✅ show user profile picture if available
+                      src={user.image}
                       className={`transition-all ${
                         isDarkMode
                           ? "bg-purple-600 hover:bg-purple-500"

@@ -105,7 +105,7 @@ const ReasonsSection: React.FC = () => {
         {/* Right Column (Illustration Placeholder) */}
         <div className="flex justify-center items-center">
           <motion.img
-            src="/src/Assets/ReasonsSection.png" 
+            src="/Assets/ReasonsSection.png" 
             alt="Reasons Illustration"
             className="max-w-md md:max-w-lg lg:max-w-xl"
             initial={{ opacity: 0, scale: 0.9 }}

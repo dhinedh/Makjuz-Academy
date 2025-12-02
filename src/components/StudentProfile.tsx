@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 // 1. Import the image file here
-import shiruVaishPhoto from '../Assets/bow.jpg'; // Make sure the file path is correct
+import shiruVaishPhoto from '/Assets/bow.jpg'; // Make sure the file path is correct
 
 // Type definition for student profile data
 interface StudentProfileData {

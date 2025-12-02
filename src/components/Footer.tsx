@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-2">
             <motion.div whileHover={{ scale: 1.05 }} className="mb-6">
               <img
-                src="src/Assets/Logo1.png"
+                src="/Assets/Logo1.png"
                 alt="Makjuz Logo"
                 className="w-40 md:w-48 h-auto object-contain" 
               />
