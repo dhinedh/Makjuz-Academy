@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Makjuz Academy - Transform your future with cutting-edge education in Data Science, Cloud Engineering, and emerging technologies." />
+    <meta name="keywords" content="education, data science, cloud engineering, programming, online courses, tech academy" />
+    <meta name="author" content="Makjuz Academy" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://makjuzacademy.com/" />
+    <meta property="og:title" content="Makjuz Academy - Future of Tech Education" />
+    <meta property="og:description" content="Transform your future with cutting-edge education in Data Science, Cloud Engineering, and emerging technologies." />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://makjuzacademy.com/" />
+    <meta property="twitter:title" content="Makjuz Academy - Future of Tech Education" />
+    <meta property="twitter:description" content="Transform your future with cutting-edge education in Data Science, Cloud Engineering, and emerging technologies." />
+    
+    <title>Makjuz Academy - Future of Tech Education</title>
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Theme color for browser UI -->
+    <meta name="theme-color" content="#8A2BE2" />
+    
+    <!-- Prevent flash of unstyled content -->
+    <style>
+      body { visibility: hidden; }
+      body.loaded { visibility: visible; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Prevent FOUC
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loaded');
+      });
+    </script>
+  </body>
+</html>
