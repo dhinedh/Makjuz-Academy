@@ -2,6 +2,7 @@ import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Clock, Users, Star } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+import { useNavigate } from "react-router-dom";
 
 export interface Course {
   id: number;
@@ -23,33 +24,13 @@ export interface CourseCardProps {
 
 const CourseCard: React.FC<CourseCardProps> = ({ course, index }) => {
   const { isDarkMode } = useTheme();
+  const navigate = useNavigate();
   const reduce = useReducedMotion();
 
   // Prefer spring / 3D hover effect unless user opts for reduced motion
   const hoverAnim = reduce
     ? { opacity: 0.95 }
     : { y: -8, rotateY: 5, scale: 1.02 };
-
-  const getLevelColor = (level: Course["level"]) => {
-    switch (level) {
-      case "Beginner":
-        return isDarkMode
-          ? "bg-green-500/20 text-green-400"
-          : "bg-green-100 text-green-600";
-      case "Intermediate":
-        return isDarkMode
-          ? "bg-yellow-500/20 text-yellow-400"
-          : "bg-yellow-100 text-yellow-600";
-      case "Advanced":
-        return isDarkMode
-          ? "bg-red-500/20 text-red-400"
-          : "bg-red-100 text-red-600";
-      default:
-        return isDarkMode
-          ? "bg-gray-500/20 text-gray-400"
-          : "bg-gray-100 text-gray-600";
-    }
-  };
 
   return (
     <motion.div
@@ -86,21 +67,6 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, index }) => {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-
-        <div
-          className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-medium ${getLevelColor(
-            course.level
-          )}`}
-        >
-          {course.level}
-        </div>
-        <div
-          className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold ${
-            isDarkMode ? "bg-purple-600 text-white" : "bg-violet-600 text-white"
-          }`}
-        >
-          {course.price}
-        </div>
       </div>
 
       {/* Course Content */}
@@ -167,22 +133,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, index }) => {
             type="button"
             whileHover={hoverAnim}
             whileTap={{ scale: 0.98 }}
-            // Changed redirect to /login
-                        onClick={() => (window.location.href = `/login`)}
-            aria-label={`Register Now for ${course.title}`}
-            className={`flex-1 py-3 rounded-xl font-semibold ${
-              isDarkMode
-                ? "bg-violet-500 text-white hover:bg-violet-300"
-                : "bg-violet-600 text-white hover:bg-violet-300"
-            }`}
-          >
-            Register Now
-          </motion.button>
-          <motion.button
-            type="button"
-            whileHover={hoverAnim}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => (window.location.href = `/courses/${course.id}`)}
+            onClick={() => navigate(`/courses/${course.id}`)}
             aria-label={`Know more about ${course.title}`}
             className={`flex-1 py-3 rounded-xl font-semibold ${
               isDarkMode

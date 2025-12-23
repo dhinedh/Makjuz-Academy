@@ -1,14 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { DollarSign, ClipboardList, Calendar } from "lucide-react";
+import { ClipboardList, Calendar, Briefcase } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
 const features = [
   {
-    icon: <DollarSign className="w-8 h-8 text-purple-400" />,
-    title: "Affordable fees",
+    icon: <Briefcase className="w-8 h-8 text-purple-400" />,
+    title: "Career Support",
     description:
-      "Discover affordable fees and high-value learning opportunities at Makjuz Academy, where your career aspirations meet reality.",
+      "Unlock your potential with our dedicated career support, guiding you from learning to landing your dream job.",
   },
   {
     icon: <ClipboardList className="w-8 h-8 text-purple-400" />,
@@ -42,11 +42,10 @@ const FeaturesSection: React.FC = () => {
   return (
     <section
       id="features"
-      className={`px-6 lg:px-20 py-20 relative overflow-hidden ${
-        isDarkMode
-          ? "bg-gradient-to-br from-[#1A0033] via-[#2D1B69] to-[#1A0033]"
-          : "bg-gradient-to-br from-violet-50 via-purple-50 to-white"
-      }`}
+      className={`px-6 lg:px-20 py-20 relative overflow-hidden ${isDarkMode
+        ? "bg-gradient-to-br from-[#1A0033] via-[#2D1B69] to-[#1A0033]"
+        : "bg-gradient-to-br from-violet-50 via-purple-50 to-white"
+        }`}
     >
       <div className="max-w-7xl mx-auto text-center">
         {/* Subtitle */}
@@ -69,11 +68,10 @@ const FeaturesSection: React.FC = () => {
           {features.map((feature, i) => (
             <motion.div
               key={feature.title}
-              className={`p-8 rounded-2xl shadow-lg ${
-                isDarkMode
-                  ? "bg-purple-950/40 hover:shadow-purple-500/30"
-                  : "bg-white hover:shadow-purple-200"
-              } transition duration-300`}
+              className={`p-8 rounded-2xl shadow-lg ${isDarkMode
+                ? "bg-purple-950/40 hover:shadow-purple-500/30"
+                : "bg-white hover:shadow-purple-200"
+                } transition duration-300`}
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"

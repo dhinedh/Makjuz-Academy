@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Clock, Users, Star, CheckCircle, Award, BarChart2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -136,7 +136,7 @@ const allCourses = [
             { week: 6, topic: 'Data Warehousing', content: 'Star schema, ETL processes' },
             { week: 7, topic: 'Security', content: 'Roles, permissions, encryption' },
             { week: 8, topic: 'Cloud Databases', content: 'Azure SQL, AWS RDS' },
-            { week: 9-10, topic: 'Capstone Project', content: 'Design and optimize database' }
+            { week: 9 - 10, topic: 'Capstone Project', content: 'Design and optimize database' }
         ],
         outcomes: [
             'Design optimized database schemas',
@@ -263,9 +263,8 @@ const CourseDetails: React.FC = () => {
 
     if (!course) {
         return (
-            <div className={`min-h-screen flex items-center justify-center text-center py-20 font-bold text-xl ${
-                isDarkMode ? 'bg-gradient-to-br from-[#1A0033] to-[#2D1B69] text-red-400' : 'bg-gradient-to-br from-gray-50 to-white text-red-600'
-            }`}>
+            <div className={`min-h-screen flex items-center justify-center text-center py-20 font-bold text-xl ${isDarkMode ? 'bg-gradient-to-br from-[#1A0033] to-[#2D1B69] text-red-400' : 'bg-gradient-to-br from-gray-50 to-white text-red-600'
+                }`}>
                 Course not found. Please check the URL or return to the courses page.
             </div>
         );
@@ -286,9 +285,8 @@ const CourseDetails: React.FC = () => {
                 >
                     {/* Left Content */}
                     <div>
-                        <h1 className={`text-4xl md:text-5xl font-bold mb-4 leading-snug ${
-                            isDarkMode ? "text-white" : "text-gray-900"
-                        }`}>
+                        <h1 className={`text-4xl md:text-5xl font-bold mb-4 leading-snug ${isDarkMode ? "text-white" : "text-gray-900"
+                            }`}>
                             Become a <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-500">Job-Ready {course.title} Expert</span>
                         </h1>
 
@@ -315,33 +313,18 @@ const CourseDetails: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Right Form */}
-                    <div className={`rounded-2xl shadow-xl p-6 md:p-8 ${isDarkMode ? "bg-[#2D1B69]/60" : "bg-white"}`}>
-                        <h2 className="text-xl font-semibold mb-4 text-center">
-                            Apply now to Unlock Offer!
-                        </h2>
-                        <form className="space-y-4">
-                            <input type="text" placeholder="Name" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 bg-transparent" />
-                            <input type="email" placeholder="Email" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 bg-transparent" />
-                            <input type="tel" placeholder="Mobile Number" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 bg-transparent" />
-                            <select className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 bg-transparent">
-                                <option value="">Education Qualification</option>
-                            </select>
-                            <select className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 bg-transparent">
-                                <option value="">Current Profile</option>
-                            </select>
-                            <select className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 bg-transparent">
-                                <option value="">Year of Graduation</option>
-                            </select>
-                            <button
-                                type="submit"
-                                className={`w-full py-3 rounded-xl font-semibold text-white transition-all duration-300 ${
-                                    isDarkMode ? "bg-violet-600 hover:bg-violet-500" : "bg-violet-600 hover:bg-violet-500"
-                                }`}
-                            >
-                                Apply Now
-                            </button>
-                        </form>
+                    {/* Right Image */}
+                    <div className="flex justify-center items-center">
+                        <motion.div
+                            whileHover={{ scale: 1.02 }}
+                            className={`rounded-2xl shadow-2xl overflow-hidden border-4 ${isDarkMode ? "border-purple-500/30" : "border-white"}`}
+                        >
+                            <img
+                                src={course.image}
+                                alt={course.title}
+                                className="w-full h-auto max-h-[400px] object-cover"
+                            />
+                        </motion.div>
                     </div>
                 </motion.div>
             </section>
@@ -355,16 +338,14 @@ const CourseDetails: React.FC = () => {
                     viewport={{ once: true }}
                 >
                     <h2
-                        className={`text-3xl md:text-4xl font-bold mb-4 ${
-                            isDarkMode ? "text-white" : "text-gray-900"
-                        }`}
+                        className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-900"
+                            }`}
                     >
                         {course.title} : Why is it Booming? ✨
                     </h2>
                     <p
-                        className={`max-w-3xl mx-auto mb-12 ${
-                            isDarkMode ? "text-gray-300" : "text-gray-600"
-                        }`}
+                        className={`max-w-3xl mx-auto mb-12 ${isDarkMode ? "text-gray-300" : "text-gray-600"
+                            }`}
                     >
                         {course.title} is revolutionizing industries worldwide — driving innovation,
                         automation, and high-paying career opportunities. With increasing demand for
@@ -377,15 +358,13 @@ const CourseDetails: React.FC = () => {
                         {/* Average Salary Card */}
                         <motion.div
                             whileHover={{ scale: 1.03 }}
-                            className={`rounded-2xl p-6 shadow-lg ${
-                                isDarkMode ? "bg-[#2D1B69]/60" : "bg-white"
-                            }`}
+                            className={`rounded-2xl p-6 shadow-lg ${isDarkMode ? "bg-[#2D1B69]/60" : "bg-white"
+                                }`}
                         >
                             <h3 className="text-lg font-semibold mb-2">Average Annual Salary</h3>
                             <p
-                                className={`text-3xl font-bold mb-1 ${
-                                    isDarkMode ? "text-purple-300" : "text-purple-700"
-                                }`}
+                                className={`text-3xl font-bold mb-1 ${isDarkMode ? "text-purple-300" : "text-purple-700"
+                                    }`}
                             >
                                 ₹12.5 LPA
                             </p>
@@ -495,15 +474,13 @@ const CourseDetails: React.FC = () => {
                         {/* Growth */}
                         <motion.div
                             whileHover={{ scale: 1.03 }}
-                            className={`rounded-2xl p-6 shadow-lg ${
-                                isDarkMode ? "bg-[#2D1B69]/60" : "bg-white"
-                            }`}
+                            className={`rounded-2xl p-6 shadow-lg ${isDarkMode ? "bg-[#2D1B69]/60" : "bg-white"
+                                }`}
                         >
                             <h3 className="text-lg font-semibold mb-2">Explosive Growth in India</h3>
                             <p
-                                className={`text-3xl font-bold mb-1 ${
-                                    isDarkMode ? "text-purple-300" : "text-purple-700"
-                                }`}
+                                className={`text-3xl font-bold mb-1 ${isDarkMode ? "text-purple-300" : "text-purple-700"
+                                    }`}
                             >
                                 300%
                             </p>
@@ -531,15 +508,13 @@ const CourseDetails: React.FC = () => {
                         {/* Opportunities */}
                         <motion.div
                             whileHover={{ scale: 1.03 }}
-                            className={`rounded-2xl p-6 shadow-lg ${
-                                isDarkMode ? "bg-[#2D1B69]/60" : "bg-white"
-                            }`}
+                            className={`rounded-2xl p-6 shadow-lg ${isDarkMode ? "bg-[#2D1B69]/60" : "bg-white"
+                                }`}
                         >
                             <h3 className="text-lg font-semibold mb-2">Diverse Opportunities</h3>
                             <p
-                                className={`text-3xl font-bold mb-1 ${
-                                    isDarkMode ? "text-purple-300" : "text-purple-700"
-                                }`}
+                                className={`text-3xl font-bold mb-1 ${isDarkMode ? "text-purple-300" : "text-purple-700"
+                                    }`}
                             >
                                 90%
                             </p>
@@ -552,11 +527,10 @@ const CourseDetails: React.FC = () => {
                                 <motion.div
                                     animate={{ y: [0, -5, 0] }}
                                     transition={{ repeat: Infinity, duration: 2 }}
-                                    className={`p-4 rounded-full ${
-                                        isDarkMode
-                                            ? "bg-purple-700/20 text-purple-300"
-                                            : "bg-purple-100 text-purple-700"
-                                    }`}
+                                    className={`p-4 rounded-full ${isDarkMode
+                                        ? "bg-purple-700/20 text-purple-300"
+                                        : "bg-purple-100 text-purple-700"
+                                        }`}
                                 >
                                     <BarChart2 size={36} />
                                 </motion.div>
@@ -575,17 +549,15 @@ const CourseDetails: React.FC = () => {
                     viewport={{ once: true }}
                 >
                     <h2
-                        className={`text-xl sm:text-2xl md:text-3xl font-bold mb-6 ${
-                            isDarkMode ? "text-white" : "text-gray-900"
-                        }`}
+                        className={`text-xl sm:text-2xl md:text-3xl font-bold mb-6 ${isDarkMode ? "text-white" : "text-gray-900"
+                            }`}
                     >
                         Explore Our Industry-Aligned Curriculum ✨
                     </h2>
 
                     <div
-                        className={`grid grid-cols-1 md:grid-cols-3 gap-4 rounded-2xl p-4 md:p-6 ${
-                            isDarkMode ? "bg-[#2D1B69]/50" : "bg-white shadow-md"
-                        }`}
+                        className={`grid grid-cols-1 md:grid-cols-3 gap-4 rounded-2xl p-4 md:p-6 ${isDarkMode ? "bg-[#2D1B69]/50" : "bg-white shadow-md"
+                            }`}
                     >
                         {/* Left Sidebar — Module List */}
                         <div className="flex flex-col gap-2">
@@ -593,15 +565,14 @@ const CourseDetails: React.FC = () => {
                                 <button
                                     key={index}
                                     onClick={() => setActiveModule(index + 1)}
-                                    className={`py-3 rounded-xl text-sm font-medium transition-all duration-300 border ${
-                                        activeModule === index + 1
-                                            ? isDarkMode
-                                                ? "bg-violet-600 text-white border-violet-500"
-                                                : "bg-violet-100 text-violet-700 border-violet-300"
-                                            : isDarkMode
-                                                ? "bg-transparent border-purple-500/40 text-purple-200 hover:bg-purple-900/30"
-                                                : "bg-gray-50 border-gray-200 text-gray-700 hover:bg-purple-50"
-                                    }`}
+                                    className={`py-3 rounded-xl text-sm font-medium transition-all duration-300 border ${activeModule === index + 1
+                                        ? isDarkMode
+                                            ? "bg-violet-600 text-white border-violet-500"
+                                            : "bg-violet-100 text-violet-700 border-violet-300"
+                                        : isDarkMode
+                                            ? "bg-transparent border-purple-500/40 text-purple-200 hover:bg-purple-900/30"
+                                            : "bg-gray-50 border-gray-200 text-gray-700 hover:bg-purple-50"
+                                        }`}
                                 >
                                     Module {index + 1}
                                 </button>
@@ -611,11 +582,10 @@ const CourseDetails: React.FC = () => {
                         {/* Right Content — Fixed Height Box */}
                         <div className="md:col-span-2 text-left">
                             <div
-                                className={`rounded-2xl p-5 md:p-6 border transition-all duration-300 ${
-                                    isDarkMode
-                                        ? "border-purple-500/20 bg-[#1A0033]/40"
-                                        : "border-gray-200 bg-gray-50"
-                                }`}
+                                className={`rounded-2xl p-5 md:p-6 border transition-all duration-300 ${isDarkMode
+                                    ? "border-purple-500/20 bg-[#1A0033]/40"
+                                    : "border-gray-200 bg-gray-50"
+                                    }`}
                                 style={{
                                     height: "440px", // fixed height like GUVI
                                     display: "flex",
@@ -637,9 +607,8 @@ const CourseDetails: React.FC = () => {
                                             {course.syllabus[activeModule - 1]?.topic || "Module Title"}
                                         </h3>
                                         <div
-                                            className={`flex items-center gap-1 text-xs sm:text-sm ${
-                                                isDarkMode ? "text-purple-300" : "text-purple-600"
-                                            }`}
+                                            className={`flex items-center gap-1 text-xs sm:text-sm ${isDarkMode ? "text-purple-300" : "text-purple-600"
+                                                }`}
                                         >
                                             <Clock size={14} /> {Math.floor(Math.random() * 5) + 4} Hrs
                                         </div>
@@ -654,13 +623,12 @@ const CourseDetails: React.FC = () => {
                                                     key={i}
                                                     className="flex items-start gap-2 leading-relaxed text-sm"
                                                 >
-                    <span
-                        className={`${
-                            isDarkMode ? "text-green-400" : "text-green-600"
-                        } mt-0.5`}
-                    >
-                      ✓
-                    </span>
+                                                    <span
+                                                        className={`${isDarkMode ? "text-green-400" : "text-green-600"
+                                                            } mt-0.5`}
+                                                    >
+                                                        ✓
+                                                    </span>
                                                     {point.trim()}
                                                 </li>
                                             ))}
@@ -670,9 +638,8 @@ const CourseDetails: React.FC = () => {
                                     {course.outcomes && (
                                         <div className="mb-4">
                                             <h4
-                                                className={`font-semibold mb-2 ${
-                                                    isDarkMode ? "text-purple-300" : "text-purple-700"
-                                                }`}
+                                                className={`font-semibold mb-2 ${isDarkMode ? "text-purple-300" : "text-purple-700"
+                                                    }`}
                                             >
                                                 What You’ll Learn
                                             </h4>
@@ -681,9 +648,8 @@ const CourseDetails: React.FC = () => {
                                                     <li key={i} className="flex items-start gap-2">
                                                         <CheckCircle
                                                             size={12}
-                                                            className={`mt-0.5 ${
-                                                                isDarkMode ? "text-green-400" : "text-green-600"
-                                                            }`}
+                                                            className={`mt-0.5 ${isDarkMode ? "text-green-400" : "text-green-600"
+                                                                }`}
                                                         />
                                                         <span>{outcome}</span>
                                                     </li>
@@ -696,9 +662,8 @@ const CourseDetails: React.FC = () => {
                                     {course.prerequisites && (
                                         <div className="mb-4">
                                             <h4
-                                                className={`font-semibold mb-2 ${
-                                                    isDarkMode ? "text-purple-300" : "text-purple-700"
-                                                }`}
+                                                className={`font-semibold mb-2 ${isDarkMode ? "text-purple-300" : "text-purple-700"
+                                                    }`}
                                             >
                                                 Prerequisites
                                             </h4>
@@ -706,14 +671,13 @@ const CourseDetails: React.FC = () => {
                                                 {course.prerequisites.map((req, i) => (
                                                     <span
                                                         key={i}
-                                                        className={`px-2 py-1 rounded text-xs ${
-                                                            isDarkMode
-                                                                ? "bg-purple-900/50 text-purple-200"
-                                                                : "bg-purple-100 text-purple-700"
-                                                        }`}
+                                                        className={`px-2 py-1 rounded text-xs ${isDarkMode
+                                                            ? "bg-purple-900/50 text-purple-200"
+                                                            : "bg-purple-100 text-purple-700"
+                                                            }`}
                                                     >
-                      {req}
-                    </span>
+                                                        {req}
+                                                    </span>
                                                 ))}
                                             </div>
                                         </div>
@@ -723,9 +687,8 @@ const CourseDetails: React.FC = () => {
                                     {course.resources && (
                                         <div className="mb-4">
                                             <h4
-                                                className={`font-semibold mb-2 ${
-                                                    isDarkMode ? "text-purple-300" : "text-purple-700"
-                                                }`}
+                                                className={`font-semibold mb-2 ${isDarkMode ? "text-purple-300" : "text-purple-700"
+                                                    }`}
                                             >
                                                 Resources Included
                                             </h4>
@@ -733,9 +696,8 @@ const CourseDetails: React.FC = () => {
                                                 {course.resources.map((res, i) => (
                                                     <li
                                                         key={i}
-                                                        className={`flex items-start gap-2 ${
-                                                            isDarkMode ? "text-gray-300" : "text-gray-700"
-                                                        }`}
+                                                        className={`flex items-start gap-2 ${isDarkMode ? "text-gray-300" : "text-gray-700"
+                                                            }`}
                                                     >
                                                         <span className="text-purple-400">•</span>
                                                         {res}
@@ -749,9 +711,8 @@ const CourseDetails: React.FC = () => {
                                     {course.certification && (
                                         <div className="flex items-center gap-2 text-sm mb-4">
                                             <Award
-                                                className={`${
-                                                    isDarkMode ? "text-yellow-300" : "text-yellow-600"
-                                                }`}
+                                                className={`${isDarkMode ? "text-yellow-300" : "text-yellow-600"
+                                                    }`}
                                                 size={14}
                                             />
                                             <span>{course.certification}</span>
@@ -765,11 +726,10 @@ const CourseDetails: React.FC = () => {
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.97 }}
                                         onClick={() => setShowContactPopup(true)}
-                                        className={`py-2 px-5 rounded-lg font-semibold text-sm transition-all duration-300 ${
-                                            isDarkMode
-                                                ? "bg-green-500 text-white hover:bg-green-400"
-                                                : "bg-green-500 text-white hover:bg-green-400"
-                                        }`}
+                                        className={`py-2 px-5 rounded-lg font-semibold text-sm transition-all duration-300 ${isDarkMode
+                                            ? "bg-green-500 text-white hover:bg-green-400"
+                                            : "bg-green-500 text-white hover:bg-green-400"
+                                            }`}
                                     >
                                         Download Syllabus
                                     </motion.button>
@@ -778,6 +738,27 @@ const CourseDetails: React.FC = () => {
                         </div>
                     </div>
                 </motion.div>
+            </section>
+
+            {/* Demo Video Section */}
+            <section className={`py-16 px-4 sm:px-6 lg:px-8 ${isDarkMode ? "bg-[#130026]" : "bg-gray-50"}`}>
+                <div className="max-w-6xl mx-auto text-center">
+                    <h2 className={`text-3xl font-bold mb-8 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+                        Watch a Demo Class 🎥
+                    </h2>
+                    <div className="aspect-w-16 aspect-h-9 max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-purple-500/20">
+                        {/* Placeholder Video - Using a valid Youtube Embed or similar */}
+                        <iframe
+                            width="100%"
+                            height="500"
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=6mG7-j5F5Z5Z5Z5Z" // Replace with actual demo video if available
+                            title="Course Demo Video"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="w-full h-full"
+                        ></iframe>
+                    </div>
+                </div>
             </section>
 
 
@@ -789,9 +770,8 @@ const CourseDetails: React.FC = () => {
                 <div className="max-w-6xl mx-auto">
                     {/* Heading */}
                     <h2
-                        className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-12 ${
-                            isDarkMode ? "text-white" : "text-gray-900"
-                        }`}
+                        className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-12 ${isDarkMode ? "text-white" : "text-gray-900"
+                            }`}
                     >
                         Get Hired with Our End-to-End Placement Support ✨
                     </h2>
@@ -811,11 +791,10 @@ const CourseDetails: React.FC = () => {
                                         scale: 1.05,
                                         boxShadow: "0 0 25px rgba(168, 85, 247, 0.3)",
                                     }}
-                                    className={`w-[260px] md:w-[270px] p-6 rounded-2xl border backdrop-blur-md transition-all duration-300 flex items-center justify-between ${
-                                        isDarkMode
-                                            ? "bg-[#2D1B69]/70 border-purple-500/20 text-white"
-                                            : "bg-white/80 border-purple-100 text-gray-800"
-                                    }`}
+                                    className={`w-[260px] md:w-[270px] p-6 rounded-2xl border backdrop-blur-md transition-all duration-300 flex items-center justify-between ${isDarkMode
+                                        ? "bg-[#2D1B69]/70 border-purple-500/20 text-white"
+                                        : "bg-white/80 border-purple-100 text-gray-800"
+                                        }`}
                                 >
                                     <div className="text-left">
                                         <p className="font-semibold leading-snug text-sm sm:text-base">
@@ -823,9 +802,8 @@ const CourseDetails: React.FC = () => {
                                         </p>
                                     </div>
                                     <div
-                                        className={`text-3xl ${
-                                            isDarkMode ? "text-purple-400" : "text-purple-600"
-                                        }`}
+                                        className={`text-3xl ${isDarkMode ? "text-purple-400" : "text-purple-600"
+                                            }`}
                                     >
                                         {item.icon}
                                     </div>
@@ -845,11 +823,10 @@ const CourseDetails: React.FC = () => {
                                         scale: 1.05,
                                         boxShadow: "0 0 25px rgba(168, 85, 247, 0.3)",
                                     }}
-                                    className={`w-[260px] md:w-[270px] p-6 rounded-2xl border backdrop-blur-md transition-all duration-300 flex items-center justify-between ${
-                                        isDarkMode
-                                            ? "bg-[#2D1B69]/70 border-purple-500/20 text-white"
-                                            : "bg-white/80 border-purple-100 text-gray-800"
-                                    }`}
+                                    className={`w-[260px] md:w-[270px] p-6 rounded-2xl border backdrop-blur-md transition-all duration-300 flex items-center justify-between ${isDarkMode
+                                        ? "bg-[#2D1B69]/70 border-purple-500/20 text-white"
+                                        : "bg-white/80 border-purple-100 text-gray-800"
+                                        }`}
                                 >
                                     <div className="text-left">
                                         <p className="font-semibold leading-snug text-sm sm:text-base">
@@ -857,9 +834,8 @@ const CourseDetails: React.FC = () => {
                                         </p>
                                     </div>
                                     <div
-                                        className={`text-3xl ${
-                                            isDarkMode ? "text-purple-400" : "text-purple-600"
-                                        }`}
+                                        className={`text-3xl ${isDarkMode ? "text-purple-400" : "text-purple-600"
+                                            }`}
                                     >
                                         {item.icon}
                                     </div>
@@ -874,17 +850,15 @@ const CourseDetails: React.FC = () => {
                 <div className="max-w-6xl mx-auto">
                     {/* Heading */}
                     <h2
-                        className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-4 ${
-                            isDarkMode ? "text-white" : "text-gray-900"
-                        }`}
+                        className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-900"
+                            }`}
                     >
                         Success Stories of Our Learners ✨
                     </h2>
 
                     <p
-                        className={`max-w-3xl mx-auto mb-10 text-sm sm:text-base leading-relaxed text-center ${
-                            isDarkMode ? "text-gray-300" : "text-gray-600"
-                        }`}
+                        className={`max-w-3xl mx-auto mb-10 text-sm sm:text-base leading-relaxed text-center ${isDarkMode ? "text-gray-300" : "text-gray-600"
+                            }`}
                     >
                         Our students upskilled, worked on real projects, and achieved career breakthroughs. Now it’s your turn!
                     </p>
@@ -917,19 +891,17 @@ const CourseDetails: React.FC = () => {
                                 key={i}
                                 whileHover={{ scale: 1.03 }}
                                 transition={{ duration: 0.3 }}
-                                className={`rounded-2xl border p-6 text-left backdrop-blur-md transition-all duration-300 ${
-                                    isDarkMode
-                                        ? "bg-[#2D1B69]/70 border-purple-500/20 text-gray-100"
-                                        : "bg-white/80 border-purple-100 text-gray-800 shadow-md"
-                                }`}
+                                className={`rounded-2xl border p-6 text-left backdrop-blur-md transition-all duration-300 ${isDarkMode
+                                    ? "bg-[#2D1B69]/70 border-purple-500/20 text-gray-100"
+                                    : "bg-white/80 border-purple-100 text-gray-800 shadow-md"
+                                    }`}
                             >
                                 {/* Name and Position */}
                                 <div className="mb-4">
                                     <h3 className="font-semibold text-lg">{item.name}</h3>
                                     <p
-                                        className={`text-sm ${
-                                            isDarkMode ? "text-purple-300" : "text-purple-700"
-                                        }`}
+                                        className={`text-sm ${isDarkMode ? "text-purple-300" : "text-purple-700"
+                                            }`}
                                     >
                                         {item.position}
                                     </p>
@@ -950,47 +922,42 @@ const CourseDetails: React.FC = () => {
                 <div className="max-w-4xl mx-auto text-center">
                     {/* Heading */}
                     <h2
-                        className={`text-xl sm:text-2xl md:text-3xl font-bold mb-10 ${
-                            isDarkMode ? "text-white" : "text-gray-900"
-                        }`}
+                        className={`text-xl sm:text-2xl md:text-3xl font-bold mb-10 ${isDarkMode ? "text-white" : "text-gray-900"
+                            }`}
                     >
                         Why Choose{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-500">
-        MAKJUZ ACADEMY
-      </span>{" "}
+                            MAKJUZ ACADEMY
+                        </span>{" "}
                         Over the Rest ✨
                     </h2>
                     <div className="py-5 px-4 sm:px-6 lg:px-8"> </div>
                     <div className="relative flex justify-center">
                         {/* Floating Card */}
                         <div
-                            className={`absolute z-20 -top-8 w-[33.3%] rounded-t-2xl py-3 font-semibold text-white text-sm ${
-                                isDarkMode ? "bg-[#7C3AED]" : "bg-[#7C3AED]"
-                            }`}
+                            className={`absolute z-20 -top-8 w-[33.3%] rounded-t-2xl py-3 font-semibold text-white text-sm ${isDarkMode ? "bg-[#7C3AED]" : "bg-[#7C3AED]"
+                                }`}
                         >
                             MAKJUZ ACADEMY
                         </div>
 
                         {/* Table Container */}
                         <div
-                            className={`w-full overflow-hidden rounded-2xl border shadow-lg ${
-                                isDarkMode
-                                    ? "border-purple-500/20 bg-[#2D1B69]/40"
-                                    : "border-purple-200 bg-white"
-                            }`}
+                            className={`w-full overflow-hidden rounded-2xl border shadow-lg ${isDarkMode
+                                ? "border-purple-500/20 bg-[#2D1B69]/40"
+                                : "border-purple-200 bg-white"
+                                }`}
                         >
                             <div className="grid grid-cols-3 text-xs sm:text-sm md:text-base">
                                 {/* Column Headers */}
                                 <div className="py-3 font-semibold"></div>
                                 <div
-                                    className={`py-3 font-semibold text-white text-center ${
-                                        isDarkMode ? "bg-violet-600" : "bg-violet-600"
-                                    }`}
+                                    className={`py-3 font-semibold text-white text-center ${isDarkMode ? "bg-violet-600" : "bg-violet-600"
+                                        }`}
                                 ></div>
                                 <div
-                                    className={`py-3 font-semibold text-center ${
-                                        isDarkMode ? "text-purple-200" : "text-gray-700"
-                                    }`}
+                                    className={`py-3 font-semibold text-center ${isDarkMode ? "text-purple-200" : "text-gray-700"
+                                        }`}
                                 >
                                     Others
                                 </div>
@@ -1008,29 +975,27 @@ const CourseDetails: React.FC = () => {
                                     <React.Fragment key={i}>
                                         {/* Left Column — Centered vertically */}
                                         <div
-                                            className={`py-3 px-3 text-left flex items-center justify-center ${
-                                                isDarkMode ? "text-gray-300" : "text-gray-800"
-                                            }`}
+                                            className={`py-3 px-3 text-left flex items-center justify-center ${isDarkMode ? "text-gray-300" : "text-gray-800"
+                                                }`}
                                         >
                                             {feature}
                                         </div>
 
                                         {/* Middle Column (MAKJUZ ACADEMY) */}
                                         <div
-                                            className={`py-3 px-3 text-center flex items-center justify-center ${
-                                                isDarkMode
-                                                    ? "bg-violet-600 text-white"
-                                                    : "bg-violet-600 text-white"
-                                            }`}
+                                            className={`py-3 px-3 text-center flex items-center justify-center ${isDarkMode
+                                                ? "bg-violet-600 text-white"
+                                                : "bg-violet-600 text-white"
+                                                }`}
                                         >
                                             {guvi === "✔" ? (
                                                 <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-500 text-white text-sm shadow">
-                    ✓
-                  </span>
+                                                    ✓
+                                                </span>
                                             ) : guvi === "✖" ? (
                                                 <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-red-500 text-white text-sm shadow">
-                    ✕
-                  </span>
+                                                    ✕
+                                                </span>
                                             ) : (
                                                 guvi
                                             )}
@@ -1038,18 +1003,17 @@ const CourseDetails: React.FC = () => {
 
                                         {/* Right Column — Centered vertically */}
                                         <div
-                                            className={`py-3 px-3 text-center flex items-center justify-center ${
-                                                isDarkMode ? "text-gray-300" : "text-gray-700"
-                                            }`}
+                                            className={`py-3 px-3 text-center flex items-center justify-center ${isDarkMode ? "text-gray-300" : "text-gray-700"
+                                                }`}
                                         >
                                             {others === "✔" ? (
                                                 <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-500 text-white text-sm shadow">
-                    ✓
-                  </span>
+                                                    ✓
+                                                </span>
                                             ) : others === "✖" ? (
                                                 <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-red-500 text-white text-sm shadow">
-                    ✕
-                  </span>
+                                                    ✕
+                                                </span>
                                             ) : (
                                                 others
                                             )}
@@ -1062,130 +1026,80 @@ const CourseDetails: React.FC = () => {
                 </div>
             </section>
 
-
-
-
-            {/* Pricing Section */}
-            <section className="py-10 px-4 sm:px-6 lg:px-8">
-                <div className="py-3 px-4 sm:px-6 lg:px-8"> </div>
-                <div className="max-w-5xl mx-auto text-center">
-                    <h2
-                        className={`text-lg sm:text-2xl md:text-3xl font-bold mb-8 ${
-                            isDarkMode ? "text-white" : "text-gray-900"
-                        }`}
-                    >
-                        Get Premium Learning at an Affordable Price ✨
+            {/* Watch Demo Class Section */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 text-center">
+                <div className="max-w-4xl mx-auto">
+                    <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-6 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+                        Watch Our Demo Class
                     </h2>
-
-                    {/* Pricing Container */}
-                    <div
-                        className={`grid grid-cols-1 md:grid-cols-2 gap-6 rounded-2xl border shadow-lg p-6 ${
-                            isDarkMode
-                                ? "bg-[#2D1B69]/40 border-purple-500/20"
-                                : "bg-white border-purple-200"
-                        }`}
-                    >
-                        {/* Left - Pricing Details */}
-                        <div
-                            className={`rounded-xl p-4 ${
-                                isDarkMode ? "bg-[#2D1B69]/30" : "bg-purple-50"
-                            }`}
-                        >
-                            {/* EMI Toggle */}
-                            <div className="flex items-center gap-2 mb-4">
-                                <button className="px-3 py-1.5 rounded-lg bg-purple-600 text-white text-xs font-semibold shadow">
-                                    EMI
-                                </button>
-                                <button
-                                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
-                                        isDarkMode ? "text-gray-300" : "text-gray-500"
-                                    }`}
-                                >
-                                    One Time
-                                </button>
-                            </div>
-
-                            {/* Pricing */}
-                            <div className="text-left mb-4">
-                                <h3
-                                    className={`text-2xl sm:text-3xl font-bold ${
-                                        isDarkMode ? "text-white" : "text-gray-900"
-                                    }`}
-                                >
-                                    {course.price}{" "}
-                                    <span className="text-gray-400 line-through text-lg">
-              ₹
-                                        {(
-                                            parseInt(course.price.replace(/[^\d]/g, "")) * 1.25
-                                        ).toLocaleString("en-IN")}
-            </span>
-                                </h3>
-                                <p className="text-gray-500 text-sm mt-1">
-                                    Per course • {course.duration}
-                                </p>
-                            </div>
-
-                            {/* Features */}
-                            <h4
-                                className={`font-semibold mb-2 text-sm ${
-                                    isDarkMode ? "text-white" : "text-gray-900"
-                                }`}
-                            >
-                                Features
-                            </h4>
-
-                            <ul className="space-y-2 text-left">
-                                {[
-                                    "Hands-on Projects & Capstone",
-                                    `${course.duration} Duration`,
-                                    "1:1 Query Support",
-                                    "Lifetime Access to Recordings",
-                                    "Industry-Relevant Tools",
-                                    "Completion Certificate",
-                                ].map((feature, i) => (
-                                    <li key={i} className="flex items-center gap-2 text-sm">
-              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-green-500 text-white text-[10px] shadow">
-                ✓
-              </span>
-                                        <span
-                                            className={isDarkMode ? "text-gray-300" : "text-gray-700"}
-                                        >
-                {feature}
-              </span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Right - Offer Card */}
-                        <div
-                            className={`rounded-xl flex flex-col justify-center items-center p-6 ${
-                                isDarkMode ? "bg-[#1F124F]" : "bg-purple-50"
-                            }`}
-                        >
-                            <h4
-                                className={`font-semibold mb-3 text-base ${
-                                    isDarkMode ? "text-white" : "text-gray-900"
-                                }`}
-                            >
-                                Exclusive Offer for You!
-                            </h4>
-
-                            <div className="px-6 py-3 bg-white rounded-lg shadow-md border border-purple-200 text-base font-semibold text-gray-900 mb-2">
-                                Flat 25% OFF
-                            </div>
-
-                            <p className="text-xs text-purple-500 mb-4">Offer Ending Soon!</p>
-
-                            <button
-                                onClick={() => setShowContactPopup(true)}
-                                className="px-6 py-2 rounded-lg text-white font-medium text-sm bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 transition-transform duration-200 hover:scale-105 shadow-md"
-                            >
-                                Apply Now
-                            </button>
-                        </div>
+                    <p className={`max-w-2xl mx-auto mb-10 text-lg ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>
+                        Get a glimpse of our teaching methodology and course content.
+                    </p>
+                    <div className="relative w-full max-w-3xl mx-auto aspect-video rounded-xl overflow-hidden shadow-xl border border-purple-500/20">
+                        <iframe
+                            src="https://www.youtube.com/embed/your-demo-video-id" // Replace with actual YouTube video ID
+                            title="Demo Class"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="absolute top-0 left-0 w-full h-full"
+                        ></iframe>
                     </div>
-                    <div className="py-5 px-4 sm:px-6 lg:px-8"> </div>
+                </div>
+            </section>
+
+
+            {/* Registration Form / Application Section (Moved to Bottom) */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+                <div className={`rounded-3xl shadow-2xl p-8 md:p-12 ${isDarkMode ? "bg-[#2D1B69] border border-purple-500/30" : "bg-white border border-gray-100"}`}>
+                    <div className="text-center mb-10">
+                        <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+                            Ready to Start Your Journey? 🚀
+                        </h2>
+                        <p className={`text-lg ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>
+                            Fill out the form below to apply for {course.title}. Our team will contact you shortly.
+                        </p>
+                    </div>
+
+                    <form className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <input type="text" placeholder="Full Name" className={`w-full px-4 py-3 rounded-xl border ${isDarkMode ? "bg-white/5 border-purple-500/30 text-white" : "bg-gray-50 border-gray-200 text-gray-900"} focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all`} />
+                            <input type="email" placeholder="Email Address" className={`w-full px-4 py-3 rounded-xl border ${isDarkMode ? "bg-white/5 border-purple-500/30 text-white" : "bg-gray-50 border-gray-200 text-gray-900"} focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all`} />
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <input type="tel" placeholder="Mobile Number" className={`w-full px-4 py-3 rounded-xl border ${isDarkMode ? "bg-white/5 border-purple-500/30 text-white" : "bg-gray-50 border-gray-200 text-gray-900"} focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all`} />
+                            <select className={`w-full px-4 py-3 rounded-xl border ${isDarkMode ? "bg-white/5 border-purple-500/30 text-white" : "bg-gray-50 border-gray-200 text-gray-900"} focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all`}>
+                                <option value="">Education Qualification</option>
+                                <option value="B.Tech">B.Tech</option>
+                                <option value="B.Sc">B.Sc</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <select className={`w-full px-4 py-3 rounded-xl border ${isDarkMode ? "bg-white/5 border-purple-500/30 text-white" : "bg-gray-50 border-gray-200 text-gray-900"} focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all`}>
+                                <option value="">Current Profile</option>
+                                <option value="Student">Student</option>
+                                <option value="Working Professional">Working Professional</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <select className={`w-full px-4 py-3 rounded-xl border ${isDarkMode ? "bg-white/5 border-purple-500/30 text-white" : "bg-gray-50 border-gray-200 text-gray-900"} focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all`}>
+                                <option value="">Year of Graduation</option>
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="Before 2023">Before 2023</option>
+                            </select>
+                        </div>
+
+                        <button
+                            type="submit"
+                            className="w-full py-4 rounded-xl font-bold text-white text-lg bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 shadow-xl shadow-purple-500/20 hover:shadow-purple-500/40 transform hover:-translate-y-1 transition-all duration-300"
+                        >
+                            Complete Registration
+                        </button>
+                    </form>
                 </div>
             </section>
 
@@ -1193,9 +1107,8 @@ const CourseDetails: React.FC = () => {
             {showContactPopup && (
                 <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50">
                     <div
-                        className={`w-full max-w-md rounded-2xl shadow-xl p-6 md:p-8 relative ${
-                            isDarkMode ? "bg-[#2D1B69]" : "bg-white"
-                        }`}
+                        className={`w-full max-w-md rounded-2xl shadow-xl p-6 md:p-8 relative ${isDarkMode ? "bg-[#2D1B69]" : "bg-white"
+                            }`}
                     >
                         <button
                             onClick={() => setShowContactPopup(false)}
@@ -1205,9 +1118,8 @@ const CourseDetails: React.FC = () => {
                         </button>
 
                         <h2
-                            className={`text-xl font-semibold mb-4 text-center ${
-                                isDarkMode ? "text-white" : "text-gray-900"
-                            }`}
+                            className={`text-xl font-semibold mb-4 text-center ${isDarkMode ? "text-white" : "text-gray-900"
+                                }`}
                         >
                             Apply now to Unlock Offer!
                         </h2>
@@ -1239,11 +1151,10 @@ const CourseDetails: React.FC = () => {
                             </select>
                             <button
                                 type="submit"
-                                className={`w-full py-3 rounded-xl font-semibold text-white transition-all duration-300 ${
-                                    isDarkMode
-                                        ? "bg-violet-600 hover:bg-violet-500"
-                                        : "bg-violet-600 hover:bg-violet-500"
-                                }`}
+                                className={`w-full py-3 rounded-xl font-semibold text-white transition-all duration-300 ${isDarkMode
+                                    ? "bg-violet-600 hover:bg-violet-500"
+                                    : "bg-violet-600 hover:bg-violet-500"
+                                    }`}
                             >
                                 Apply Now
                             </button>
